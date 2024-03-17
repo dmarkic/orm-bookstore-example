@@ -5,8 +5,6 @@
  */
 
 require(__DIR__ . '/vendor/autoload.php');
-require(__DIR__ . '/../dbal/vendor/autoload.php');
-require(__DIR__ . '/../orm/vendor/autoload.php');
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
