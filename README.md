@@ -3,6 +3,16 @@
 Example project using [Framework-X](https://github.com/clue/framework-x/), [blrf/dbal](https://github.com/dmarkic/dbal) and [blrf/orm](https://github.com/dmarkic/orm).
 A simple Restful Api to showcase current `blrf/dbal` and `blrf/orm` development.
 
+## Install
+
+Pull the respository from github.
+
+Run:
+
+```
+composer install
+```
+
 ## Configuration
 
 Create database and user that can access it.
