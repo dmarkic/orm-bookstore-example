@@ -7,9 +7,7 @@
   </testsuites>
   <source>
     <include>
-      <directory>/home/dejan/dev/bookstore/src</directory>
-      <directory>/home/dejan/dev/dbal/src</directory>
-      <directory>/home/dejan/dev/orm/src</directory>
+      <directory>src</directory>
     </include>
   </source>
 </phpunit>

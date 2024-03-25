@@ -4,7 +4,14 @@
  * Setup Dbal and Orm
  */
 
-require(__DIR__ . '/vendor/autoload.php');
+require('./vendor/autoload.php');
+
+/**
+ * local file for development or changes.
+ */
+if (file_exists('./setup_local.php')) {
+    require('./setup_local.php');
+}
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
