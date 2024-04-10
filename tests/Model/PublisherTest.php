@@ -26,7 +26,8 @@ class PublisherTest extends TestCase
         $this->assertSame('HighBridge Company', await($publisher->getPublisherName()));
 
         $books = await($publisher->getBooks());
-        $this->assertSame(2, count($books));
+
+        $this->assertCount(2, $books);
 
         $expIds = [10164, 10163];
 
@@ -35,7 +36,7 @@ class PublisherTest extends TestCase
         }
 
         $arr = await($publisher->toArray());
-        $this->assertCount(2, $arr);
+        $this->assertCount(3, $arr);
         $this->assertSame(await($publisher->getPublisherId()), $arr['publisher_id']);
         $this->assertSame(await($publisher->getPublisherName()), $arr['publisher_name']);
     }

@@ -26,4 +26,43 @@ class CustomerAddressTest extends TestCase
         $status = await($caddress->getStatus());
         $this->assertSame('Active', $status->getAddressStatus());
     }
+
+    public function testChangeStatus()
+    {
+        // load and check that status is Inactive
+        $caddress = await(CustomerAddress::findByPk(3, 128));
+        $status = await($caddress->getStatus());
+        $this->assertSame('Inactive', $status->getAddressStatus());
+
+        // find activeStatus
+        $activeStatus = await(AddressStatus::findByPk(1));
+        $this->assertSame('Active', $activeStatus->getAddressStatus());
+
+        // update address to Active status
+        await($caddress->setStatus($activeStatus));
+        $status = await($caddress->getStatus());
+        $this->assertSame('Active', $status->getAddressStatus());
+        await($caddress->update());
+
+        // check if update was successful
+        $caddress = await(CustomerAddress::findByPk(3, 128));
+        $status = await($caddress->getStatus());
+        $this->assertSame('Active', $status->getAddressStatus());
+
+        // revert back
+        // find inactive status
+        $inactiveStatus = await(AddressStatus::findByPk(2));
+        $this->assertSame('Inactive', $inactiveStatus->getAddressStatus());
+
+        // update address to Inactive status
+        await($caddress->setStatus($inactiveStatus));
+        $status = await($caddress->getStatus());
+        $this->assertSame('Inactive', $status->getAddressStatus());
+        await($caddress->update());
+
+        // check if update was successful
+        $caddress = await(CustomerAddress::findByPk(3, 128));
+        $status = await($caddress->getStatus());
+        $this->assertSame('Inactive', $status->getAddressStatus());
+    }
 }

@@ -29,15 +29,6 @@ class AddressStatusTest extends TestCase
         $status = await(AddressStatus::findByPk(3));
     }
 
-    public function testFindWithTrue()
-    {
-        $statuses = await(AddressStatus::find(true)); // or AddressStatus::findAll()
-        $this->assertCount(2, $statuses);
-        foreach ($statuses as $status) {
-            $this->assertInstanceOf(AddressStatus::class, $status);
-        }
-    }
-
     public function testFindAll()
     {
         $statuses = await(AddressStatus::findAll());

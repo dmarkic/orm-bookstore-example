@@ -28,9 +28,9 @@ class Book extends Model
     {
         return $data
             ->setSource(new Attr\Source('book'))
-            ->addField(new Attr\Field('book_id', new Attr\Field\TypeInt(), null, new Attr\GeneratedValue()))
+            ->addField(new Attr\Field('book_id', Attr\Field\TypeInt::factory(), null, new Attr\GeneratedValue()))
             ->createField('title', ['type' => 'string', 'min' => 0, 'max' => 400]) // same as addField, but shorter
-            ->createField('isbn', new Attr\Field\TypeString(0, 13), 'isbn13') // map isbn to isbn13 column
+            ->createField('isbn', Attr\Field\TypeString::factory(0, 13), 'isbn13') // map isbn to isbn13 column
             ->createField('num_pages', ['type' => 'int', 'min' => 0])
             ->createField('publication_date', ['type' => 'date'])
             // BookLanguage related field (magic method: getLanguage())

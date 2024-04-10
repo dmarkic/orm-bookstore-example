@@ -224,3 +224,11 @@ You can obtain model meta-data by calling
 ```
 curl http://localhost:8080/bookstore/book/metadata
 ```
+
+## Tests
+
+To run the test suite, go to project root and run:
+
+```
+vendor/bin/phpunit
+```

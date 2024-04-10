@@ -21,7 +21,7 @@ class Customer extends Model
 {
     #[Attr\Field]
     #[Attr\AutoIncrement]
-    #[Attr\Relation('ONETOMANY', CustomerAddress::class, 'customer_id', 'Addresses')]
+    #[Attr\Relation('ONETOMANY', CustomerAddress::class, 'customer', 'Addresses')]
     protected int $customer_id;
 
     #[Attr\Field(type: ['type' => 'string', 'max' => 200])]

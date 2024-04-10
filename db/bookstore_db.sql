@@ -247,6 +247,7 @@ CREATE TABLE `order_status` (
 CREATE TABLE `publisher` (
   `publisher_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `publisher_name` varchar(400) NOT NULL,
+  `publisher_active` ENUM('Y','N') NOT NULL DEFAULT 'Y',
   PRIMARY KEY (`publisher_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
