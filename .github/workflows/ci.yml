@@ -8,10 +8,6 @@ jobs:
   PHPUnit:
     name: PHPUnit (PHP ${{ matrix.php }})
     runs-on: ubuntu-latest
-    env:
-      DB_DATABASE: test_db
-      DB_USER: root
-      DB_PASSWORD: root
     strategy:
       matrix:
         php:
@@ -25,10 +21,16 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: xdebug
           ini-file: development
-      - name: Setup MySQL
-        run: |
-          sudo /etc/init.d/mysql start
-          mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
+#      - name: Setup MySQL
+#        run: |
+#          sudo /etc/init.d/mysql start
+#          mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
+      - uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: "8.0"
+          root-password: "root"
+
+      - run: mysql -e "CREATE DATABASE IF NOT EXISTS test_db;" -uroot -proot
       - run: echo -e "BS_DB_HOST=localhost\nBS_DB_PORT=3306\nBS_DB_USER=root\nBS_DB_PASS=root\nBS_DB_DBNAME=test_db\n" > .env
       - run: cat .env
       - run: composer install

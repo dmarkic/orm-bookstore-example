@@ -22,7 +22,7 @@ use Blrf\Orm\Factory as OrmFactory;
 
 $container = OrmFactory::getContainer();
 // uncomment to enable logger
-$container->set('blrf.orm.logger', new StderrLogger());
+//$container->set('blrf.orm.logger', new StderrLogger());
 
 /**
  * Setup default Orm connection
