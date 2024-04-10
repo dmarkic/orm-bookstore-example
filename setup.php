@@ -16,6 +16,8 @@ if (file_exists('./setup_local.php')) {
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+print_r($_ENV);
+
 use Blrf\Bookstore\Log\StderrLogger;
 use Blrf\Dbal\Config as DbalConfig;
 use Blrf\Orm\Factory as OrmFactory;
