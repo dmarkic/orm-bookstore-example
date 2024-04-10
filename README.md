@@ -1,5 +1,7 @@
 # Bookstore
 
+[![CI status](https://github.com/dmarkic/orm-bookstore-example/actions/workflows/ci.yml/badge.svg)](https://github.com/dmarkic/orm-bookstore-example/actions)
+
 Example project using [Framework-X](https://github.com/clue/framework-x/), [blrf/dbal](https://github.com/dmarkic/dbal) and [blrf/orm](https://github.com/dmarkic/orm).
 A simple Restful Api to showcase current `blrf/dbal` and `blrf/orm` development.
 
