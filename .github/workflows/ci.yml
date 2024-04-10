@@ -9,9 +9,9 @@ jobs:
     name: PHPUnit (PHP ${{ matrix.php }})
     runs-on: ubuntu-latest
     env:
-      DB_DATABASE: bookstore
-      DB_USER: user
-      DB_PASSWORD: password
+      DB_DATABASE: test_db
+      DB_USER: root
+      DB_PASSWORD: root
     strategy:
       matrix:
         php:
