@@ -41,7 +41,7 @@ CREATE TABLE `address` (
   `street_number` varchar(10) NOT NULL,
   `street_name` varchar(200) NOT NULL,
   `city` varchar(100) NOT NULL,
-  `country_id` int(11) NOT NULL,
+  `country_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`address_id`),
   KEY `fk_addr_ctry` (`country_id`),
   CONSTRAINT `fk_addr_ctry` FOREIGN KEY (`country_id`) REFERENCES `country` (`country_id`)
