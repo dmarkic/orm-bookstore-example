@@ -8,6 +8,10 @@ jobs:
   PHPUnit:
     name: PHPUnit (PHP ${{ matrix.php }})
     runs-on: ubuntu-latest
+    env:
+      DB_DATABASE: bookstore
+      DB_USER: user
+      DB_PASSWORD: password
     strategy:
       matrix:
         php:
@@ -21,5 +25,9 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: xdebug
           ini-file: development
+      - name: Start MySQL
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
       - run: composer install
       - run: vendor/bin/phpunit --coverage-text
