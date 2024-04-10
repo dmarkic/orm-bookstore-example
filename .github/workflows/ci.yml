@@ -27,7 +27,7 @@ jobs:
 #          mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
       - uses: shogo82148/actions-setup-mysql@v1
         with:
-          mysql-version: "8.0"
+          mysql-version: "mariadb-10.11"
           root-password: "root"
 
       - run: mysql -e "CREATE DATABASE IF NOT EXISTS test_db;" -uroot -proot
