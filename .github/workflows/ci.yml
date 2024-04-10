@@ -29,7 +29,7 @@ jobs:
         run: |
           sudo /etc/init.d/mysql start
           mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
-      - run: echo -e "DB_HOST=localhost\nDB_PORT=3306\nDB_PASS=root\nDB_DBNAME=test_db\n" > .env
+      - run: echo -e "BS_DB_HOST=localhost\nBS_DB_PORT=3306\nBS_DB_USER=root\nBS_DB_PASS=root\nBS_DB_DBNAME=test_db\n" > .env
       - run: cat .env
       - run: composer install
       - run: vendor/bin/phpunit --coverage-text

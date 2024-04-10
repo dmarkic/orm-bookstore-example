@@ -34,9 +34,9 @@ $manager
     ->addConnection(
         new DbalConfig(
             'mysql://' .
-            $_ENV['DB_USER'] . ':' .
-            $_ENV['DB_PASS'] . '@' .
-            $_ENV['DB_HOST'] . '/' .
-            $_ENV['DB_DBNAME']
+            $_ENV['BS_DB_USER'] . ':' .
+            $_ENV['BS_DB_PASS'] . '@' .
+            $_ENV['BS_DB_HOST'] . '/' .
+            $_ENV['BS_DB_DBNAME']
         )
     );

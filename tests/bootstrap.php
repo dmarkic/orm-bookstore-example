@@ -5,7 +5,7 @@ require(__DIR__ . '/../setup.php');
 $dbSql = __DIR__ . '/../db/bookstore_db.sql';
 $dataSql = __DIR__ . '/../db/bookstore_data.sql';
 
-$mysqlCmd = 'mysql -u ' . $_ENV['DB_USER'] . ' -p' . $_ENV['DB_PASS'] . ' ' . $_ENV['DB_DBNAME'];
+$mysqlCmd = 'mysql -u ' . $_ENV['BS_DB_USER'] . ' -p' . $_ENV['BS_DB_PASS'] . ' ' . $_ENV['BS_DB_DBNAME'];
 
 
 echo "bootstrap.php: Creating tables ...";
