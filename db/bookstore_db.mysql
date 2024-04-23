@@ -30,6 +30,7 @@ DROP TABLE IF EXISTS `order_line`;
 DROP TABLE IF EXISTS `order_status`;
 DROP TABLE IF EXISTS `publisher`;
 DROP TABLE IF EXISTS `shipping_method`;
+DROP TABLE IF EXISTS `interval`;
 --
 -- Table structure for table `address`
 --
@@ -41,7 +42,7 @@ CREATE TABLE `address` (
   `street_number` varchar(10) NOT NULL,
   `street_name` varchar(200) NOT NULL,
   `city` varchar(100) NOT NULL,
-  `country_id` int(11) unsigned NOT NULL,
+  `country_id` int(11) NOT NULL,
   PRIMARY KEY (`address_id`),
   KEY `fk_addr_ctry` (`country_id`),
   CONSTRAINT `fk_addr_ctry` FOREIGN KEY (`country_id`) REFERENCES `country` (`country_id`)
@@ -265,6 +266,20 @@ CREATE TABLE `shipping_method` (
   PRIMARY KEY (`method_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table for testing reserved DB keywords
+--
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `interval` (
+  `interval_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `interval` varchar(400) NOT NULL,
+  PRIMARY KEY (`interval_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

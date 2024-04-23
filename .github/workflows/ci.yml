@@ -21,10 +21,6 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: xdebug
           ini-file: development
-#      - name: Setup MySQL
-#        run: |
-#          sudo /etc/init.d/mysql start
-#          mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u$DB_USER -p$DB_PASSWORD
       - uses: shogo82148/actions-setup-mysql@v1
         with:
           mysql-version: "mariadb-10.11"

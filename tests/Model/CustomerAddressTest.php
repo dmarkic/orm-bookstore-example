@@ -65,4 +65,28 @@ class CustomerAddressTest extends TestCase
         $status = await($caddress->getStatus());
         $this->assertSame('Inactive', $status->getAddressStatus());
     }
+
+    public function testFindWithJoin()
+    {
+        $promise = CustomerAddress::find()->then(
+            function ($qb) {
+                return $qb
+                    ->join(
+                        'address_status',
+                        'address_status.status_id = customer_address.status_id'
+                    )
+                    ->where(
+                        fn($cb) => $cb->and(
+                            $cb->eq('customer_id'),
+                            $cb->eq('address_status')
+                        )
+                    )
+                    ->addParameter(3)
+                    ->addParameter('Inactive')
+                    ->execute();
+            }
+        );
+        $addresses = await($promise);
+        $this->assertCount(1, $addresses);
+    }
 }
