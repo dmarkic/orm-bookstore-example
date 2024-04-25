@@ -14,7 +14,7 @@ use React\Promise\PromiseInterface;
  * This example creates ONETOONE relation with Attr\Relation for Country.
  *
  */
-#[Attr\Model]
+#[Attr\Source('address')]
 #[Attr\Index(type: 'PRIMARY', fields: ['address_id'])]
 class Address extends Model
 {

@@ -12,7 +12,7 @@ use Blrf\Orm\Model;
  *
  * @todo We could probably move this class to Address\Status and set source via Attr\Source as an example.
  */
-#[Attr\Model]
+#[Attr\Source(name:'address_status')]
 #[Attr\Index(type: 'PRIMARY', fields: ['status_id'])]
 class AddressStatus extends Model
 {
