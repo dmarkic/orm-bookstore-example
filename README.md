@@ -1,7 +1,5 @@
 # Bookstore
 
-[![CI status](https://github.com/dmarkic/orm-bookstore-example/actions/workflows/ci.yml/badge.svg)](https://github.com/dmarkic/orm-bookstore-example/actions)
-
 Example project using [Framework-X](https://github.com/clue/framework-x/), [blrf/dbal](https://github.com/dmarkic/dbal) and [blrf/orm](https://github.com/dmarkic/orm).
 A simple Restful Api to showcase current `blrf/dbal` and `blrf/orm` development.
 
@@ -22,11 +20,11 @@ Create database and user that can access it.
 Create `.env` file with following content. Replace relevant values.
 
 ```
-BS_DB_HOST=localhost
-BS_DB_PORT=3306
-BS_DB_USER=user
-BS_DB_PASSWD=pass
-BS_DB_DBNAME=bookstore
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=user
+DB_PASSWD=pass
+DB_DBNAME=bookstore
 ```
 
 ### Import database
@@ -183,7 +181,8 @@ Output
     },
     "publisher": {
         "publisher_id": 1010,
-        "publisher_name": "Ignatius Press"
+        "publisher_name": "Ignatius Press",
+        "publisher_active": "Y"
     }
 }
 ```
@@ -191,13 +190,35 @@ Output
 ### Create model
 
 ```
-curl -X PUT http://localhost:8080/bookstore/book -H 'Content-Type: application/json' -d '{"title":"From curl", "isbn": "123", "language": 2}'
+curl -X PUT http://localhost:8080/bookstore/book -H 'Content-Type: application/json' -d '{"title":"From curl", "isbn": "123", "language": 2, "publication_date": "2024-04-02", "num_pages": 100, "publisher": 3}'
+```
+
+Output
+
+```json
+{
+    "book_id": 11130,
+    "title": "From curl",
+    "isbn": "123",
+    "num_pages": 100,
+    "publication_date": "2024-04-02",
+    "language": 2,
+    "publisher": 3
+}
 ```
 
 ### Delete model
 
 ```
-curl -X DELETE http://localhost:8080/bookstore/book/11279
+curl -X DELETE http://localhost:8080/bookstore/book/11130
+```
+
+Output
+
+```json
+{
+    "deleted": true
+}
 ```
 
 ### Find models
@@ -225,12 +246,4 @@ You can obtain model meta-data by calling
 
 ```
 curl http://localhost:8080/bookstore/book/metadata
-```
-
-## Tests
-
-To run the test suite, go to project root and run:
-
-```
-vendor/bin/phpunit
 ```
