@@ -20,11 +20,11 @@ Create database and user that can access it.
 Create `.env` file with following content. Replace relevant values.
 
 ```
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=user
-DB_PASSWD=pass
-DB_DBNAME=bookstore
+BS_DB_HOST=localhost
+BS_DB_PORT=3306
+BS_DB_USER=user
+BS_DB_PASSWD=pass
+BS_DB_DBNAME=bookstore
 ```
 
 ### Import database
