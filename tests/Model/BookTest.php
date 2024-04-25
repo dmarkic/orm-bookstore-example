@@ -229,7 +229,7 @@ class BookTest extends TestCase
         $json = json_encode($book);
         $this->assertEquals(
             '{"book_id":10152,"title":"Shout Out Loud! 2","isbn":"9781598163179","num_pages":194,' .
-            '"publication_date":{"date":"2006-08-01 00:00:00.000000","timezone_type":3,"timezone":"UTC"},' .
+            '"publication_date":"2006-08-01",' .
             '"language":1,"publisher":295}',
             $json
         );
